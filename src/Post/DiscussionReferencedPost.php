@@ -38,7 +38,7 @@ class DiscussionReferencedPost extends AbstractEventPost implements MergeableInt
     /**
      * {@inheritdoc}
      */
-    public function saveAfter(Post $previous = null)
+    public function saveAfter(?Post $previous = null)
     {
         // If the previous post is another 'discussion referenced' post, and it's
         // by the same user, then we can merge this post into it.

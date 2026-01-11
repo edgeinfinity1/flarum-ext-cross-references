@@ -15,6 +15,7 @@ parameters:
   ignoreErrors:
     - message: '#function extract is passed by reference#'
       path: tests/unit/CrossReferencesConfiguratorTest.php
+      reportUnmatched: false
     - message: '#Variable \$(parser|renderer) might not be defined#'
       path: tests/unit/CrossReferencesConfiguratorTest.php
   checkMissingIterableValueType: false

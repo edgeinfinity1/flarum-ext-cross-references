@@ -1,5 +1,6 @@
 # Project files
 /vendor
+composer.lock
 /tests/.phpunit.result.cache
 /tests/.phpunit.cov.cache
 /tests/.phpunit.*.cov.xml

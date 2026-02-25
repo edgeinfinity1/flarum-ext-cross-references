@@ -51,6 +51,8 @@ export default class DiscussionLink extends Link {
         if (d) {
           this.discussion = d;
           m.redraw();
+        } else {
+          this.discussion = app.store.find<Discussion>('discussions', discussionId);
         }
       });
     }

@@ -42,8 +42,18 @@ export default class DiscussionReferencedPost extends EventPost {
 
   oninit(vnode: Vnode) {
     super.oninit(vnode);
+    this.loadDiscussions();
+  }
 
+  onbeforeupdate(vnode: Vnode, old: Vnode) {
+    if (vnode.attrs.post !== old.attrs.post) {
+      this.loadDiscussions();
+    }
+  }
+
+  loadDiscussions() {
     this.loading = true;
+    this.discussions = {};
 
     const ids = this.attrs.sourceIds;
 

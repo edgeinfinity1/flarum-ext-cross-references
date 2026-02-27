@@ -48,12 +48,14 @@ export default class DiscussionLink extends Link {
     const isComment = href && /\/d\/[^\/]+\/[0-9]+/.test(href);
 
     if (discussion) {
+      console.log(discussion);
       return (
         <Link
           href={href ? href : app.route('discussion', { id: discussionId })}
           class="DiscussionLink RouteSet"
         >
-          {discussion.title()}
+          {discussion.attributes.title}
+          &ensp;
           {showId && <DiscussionId discussionId={discussionId} />}
           {isComment && <DiscussionComment />}
         </Link>
@@ -63,6 +65,7 @@ export default class DiscussionLink extends Link {
     return (
       <span class="DiscussionLink DiscussionUnknown">
         {app.translator.trans('club-1-cross-references.forum.unknown_discussion')}
+        &ensp;
         {showId && <DiscussionId discussionId={discussionId} />}
         {isComment && <DiscussionComment />}
       </span>

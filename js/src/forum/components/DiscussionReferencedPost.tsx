@@ -68,7 +68,8 @@ export default class DiscussionReferencedPost extends EventPost {
             errorHandler: () => {},
           });
 
-          discussion = app.store.pushPayload(response).data;
+          app.store.pushPayload(response);
+          discussion = app.store.getById<Discussion>('discussions', id);
         } catch {
           discussion = undefined;
         }

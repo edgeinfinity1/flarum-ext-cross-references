@@ -48,13 +48,13 @@ export default class DiscussionLink extends Link {
     const isComment = href && /\/d\/[^\/]+\/[0-9]+/.test(href);
 
     if (discussion) {
-      console.log(discussion);
+
       return (
         <Link
           href={href ? href : app.route('discussion', { id: discussionId })}
           class="DiscussionLink RouteSet"
         >
-          {discussion.attributes.title}
+          {discussion.title()}
           &ensp;
           {showId && <DiscussionId discussionId={discussionId} />}
           {isComment && <DiscussionComment />}

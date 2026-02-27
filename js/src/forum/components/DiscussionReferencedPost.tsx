@@ -62,8 +62,14 @@ export default class DiscussionReferencedPost extends EventPost {
 
       if (!discussion) {
         try {
-          discussion = await app.store.find<Discussion>('discussions', id);
-        } catch (e) {
+          const response = await app.request({
+            method: 'GET',
+            url: app.forum.attribute('apiUrl') + `/discussions/${id}`,
+            errorHandler: () => {},
+          });
+
+          discussion = app.store.pushPayload(response).data;
+        } catch {
           discussion = undefined;
         }
       }
